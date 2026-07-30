@@ -97,6 +97,7 @@ draft_content.json
 # User uploads (runtime artifacts)
 packages/api/uploads/
 uploads/
+upload/
 file:/
 **/file:/
 *.db-shm

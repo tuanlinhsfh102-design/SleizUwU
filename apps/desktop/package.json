@@ -1,0 +1,30 @@
+{
+  "name": "@sleiz/desktop",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Sleiz Studio Desktop (ElectroBun)",
+  "type": "module",
+  "scripts": {
+    "dev": "electrobun dev",
+    "dev:watch": "electrobun dev --watch",
+    "run:dev": "electrobun run",
+    "build": "electrobun build",
+    "build:dev": "electrobun build --env=dev",
+    "build:canary": "electrobun build --env=canary",
+    "build:stable": "electrobun build --env=stable",
+    "prebuild": "bun run scripts/pre-build.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sleiz/shared": "workspace:*",
+    "@sleiz/database": "workspace:*",
+    "@sleiz/api": "workspace:*",
+    "electrobun": "^1.18.1",
+    "hono": "^4.6.0",
+    "@hono/node-server": "^1.13.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.6.0"
+  }
+}

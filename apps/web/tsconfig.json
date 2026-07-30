@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@sleiz/shared": ["../../packages/shared/src/index.ts"],
+      "@sleiz/shared/*": ["../../packages/shared/src/*"],
+      "@sleiz/database": ["../../packages/database/src/index.ts"],
+      "@sleiz/api": ["../../packages/api/src/index.ts"],
+      "@sleiz/ui": ["../../packages/ui/src/index.ts"],
+      "@sleiz/ui/*": ["../../packages/ui/src/*"],
+      "@sleiz/subtitle": ["../../packages/subtitle/src/index.ts"],
+      "@sleiz/translator": ["../../packages/translator/src/index.ts"],
+      "@sleiz/bilibili": ["../../packages/bilibili/src/index.ts"],
+      "@sleiz/tiktok": ["../../packages/tiktok/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "vite.config.ts", "tailwind.config.js"]
+}

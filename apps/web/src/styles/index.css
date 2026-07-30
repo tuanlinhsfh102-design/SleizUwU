@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[#0b0b0d] text-zinc-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-[#2b2d31];
+  }
+
+  /* Scrollbar - VSCode style */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#2b2d31] rounded-full;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#3a3c41];
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-[#1e1f22] border border-[#2b2d31] rounded-lg;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between px-4 py-2.5 border-b border-[#2b2d31];
+  }
+
+  .panel-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-zinc-400;
+  }
+
+  .input-base {
+    @apply h-9 w-full rounded-md border border-[#3a3c41] bg-[#131416] px-3 text-sm text-zinc-100
+      placeholder:text-zinc-500 transition-colors
+      focus:outline-none focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 h-9 px-3.5 rounded-md text-sm font-medium
+      transition-all select-none focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-violet-500/60 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-b from-violet-600 to-violet-700 text-white
+      hover:from-violet-500 hover:to-violet-600 shadow-sm shadow-violet-900/40;
+  }
+
+  .btn-secondary {
+    @apply btn bg-[#2b2d31] text-zinc-100 hover:bg-[#36373d] border border-[#3a3c41];
+  }
+
+  .btn-ghost {
+    @apply btn text-zinc-300 hover:bg-[#2b2d31] hover:text-zinc-100;
+  }
+
+  .btn-danger {
+    @apply btn bg-gradient-to-b from-rose-600 to-rose-700 text-white
+      hover:from-rose-500 hover:to-rose-600;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center h-8 w-8 rounded-md text-zinc-400
+      hover:bg-[#2b2d31] hover:text-zinc-100 transition-colors;
+  }
+
+  .table-row {
+    @apply grid items-center px-4 py-2 text-sm hover:bg-[#2b2d31]/60 transition-colors cursor-pointer;
+  }
+
+  .status-bar-item {
+    @apply inline-flex items-center gap-1.5 px-2 h-6 text-2xs text-zinc-400 hover:bg-[#2b2d31] hover:text-zinc-200 transition-colors cursor-default;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation-duration: 200ms;
+    animation-fill-mode: both;
+  }
+  .fade-in {
+    animation-name: fade-in;
+  }
+  .slide-in-from-right-4 {
+    animation-name: slide-in-from-right;
+  }
+  .slide-in-from-bottom {
+    animation-name: slide-in-from-bottom;
+  }
+  .zoom-in-95 {
+    animation-name: zoom-in;
+  }
+  .duration-150 {
+    animation-duration: 150ms;
+  }
+  .duration-200 {
+    animation-duration: 200ms;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

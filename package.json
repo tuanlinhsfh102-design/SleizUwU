@@ -1,0 +1,57 @@
+{
+  "name": "sleiz-studio",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Sleiz Studio - All-in-one platform for translating Chinese animation to Vietnamese",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "bun build:web && bun --filter ./apps/desktop dev",
+    "dev": "bun run predev && bun run scripts/run-parallel.ts all",
+    "dev:api": "bun run predev:api && bun --filter ./packages/api dev",
+    "dev:all": "bun run predev:all && bun run scripts/run-parallel.ts all",
+    "dev:desktop": "bun --filter ./apps/desktop dev",
+    "dev:hmr": "bun run predev && bun run scripts/run-parallel.ts hmr",
+    "predev": "bun run scripts/kill-port.ts 3000 8787",
+    "predev:api": "bun run scripts/kill-port.ts 8787",
+    "predev:all": "bun run scripts/kill-port.ts 3000 8787",
+    "build": "bun --filter '*' build",
+    "build:web": "bun --filter ./apps/web build",
+    "build:api": "bun --filter ./packages/api build",
+    "build:desktop": "bun --filter ./apps/desktop build:stable",
+    "build:desktop:canary": "bun --filter ./apps/desktop build:canary",
+    "build:desktop:dev": "bun --filter ./apps/desktop build:dev",
+    "build:icons": "python scripts/generate-icons.py",
+    "build:exe": "bun run release/scripts/build-windows-exe.ts",
+    "build:linux": "bun run release/scripts/build-linux-bin.ts",
+    "build:standalone": "bun --filter ./apps/web build && bun run release/scripts/build-windows-exe.ts && bun run release/scripts/build-linux-bin.ts",
+    "lint": "bun --filter '*' lint",
+    "typecheck": "bun --filter '*' typecheck",
+    "db:generate": "bun --filter ./packages/database db:generate",
+    "db:migrate": "bun --filter ./packages/database db:migrate",
+    "db:seed": "bun --filter ./packages/database db:seed",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.0.0",
+    "concurrently": "^9.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "typescript": "^5.6.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}

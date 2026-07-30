@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["bun-types"],
+    "baseUrl": ".",
+    "paths": {
+      "@sleiz/shared": ["../../packages/shared/src/index.ts"],
+      "@sleiz/database": ["../../packages/database/src/index.ts"],
+      "@sleiz/api": ["../../packages/api/src/index.ts"],
+      "electrobun": ["./node_modules/electrobun"],
+      "electrobun/bun": ["./node_modules/electrobun/bun/index.ts"],
+      "electrobun/view": ["./node_modules/electrobun/view/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "electrobun.config.ts", "scripts/**/*"]
+}

@@ -1,0 +1,7 @@
+[install]
+exact = false
+auto = "auto"
+
+[test]
+preload = []
+coverage = false

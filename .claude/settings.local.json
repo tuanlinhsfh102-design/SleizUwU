@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-NetTCPConnection -LocalPort 8787 -State Listen -ErrorAction SilentlyContinue | Select-Object LocalAddress,LocalPort,OwningProcess; Get-Process -Id \\(Get-NetTCPConnection -LocalPort 8787 -State Listen -ErrorAction SilentlyContinue\\).OwningProcess -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,Path,StartTime)",
+      "PowerShell(Get-Process | Where-Object { $_.ProcessName -match 'bun|electrobun|SleizStudio|Sleiz' } | Select-Object Id,ProcessName,Path | Format-Table -AutoSize)",
+      "PowerShell(Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue | Where-Object { $_.LocalPort -in 5173,8787,4173,3000 } | Select-Object LocalAddress,LocalPort,OwningProcess)",
+      "Bash(bun --version)",
+      "Bash(timeout 15 bun run dev:api)",
+      "Bash(nohup bun run dev:api)",
+      "Bash(curl -s http://127.0.0.1:8787/api/health)",
+      "Bash(curl -s \"http://127.0.0.1:8787/api/tiktok/health\")"
+    ]
+  }
+}

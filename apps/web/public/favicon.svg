@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#7c3aed"/>
+  <path d="M9 11 L16 7 L23 11 L23 21 L16 25 L9 21 Z" stroke="white" stroke-width="1.5" fill="none"/>
+  <text x="16" y="20" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="white" text-anchor="middle">S</text>
+</svg>
